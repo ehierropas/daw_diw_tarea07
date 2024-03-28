@@ -178,8 +178,8 @@ h1 {
     @include styleBig();
     text-align: center;
     color: $color-miclubbi;
-    text-shadow: -1px 0 $color-text-yellow, 0 1px $color-text-yellow, 1px 0 $color-text-yellow, 0 -1px $color-text-yellow, 
-        -2px 2px 0 $color-text-yellow, 2px 2px 0 $color-text-yellow, 1px 1px $color-text-yellow, 2px 2px $color-text-yellow, 
+    text-shadow: -1px 0 $color-text-yellow, 0 1px $color-text-yellow, 1px 0 $color-text-yellow, 0 -1px $color-text-yellow,
+        -2px 2px 0 $color-text-yellow, 2px 2px 0 $color-text-yellow, 1px 1px $color-text-yellow, 2px 2px $color-text-yellow,
         3px 3px $color-text-yellow, 4px 4px $color-text-yellow, 5px 5px $color-text-yellow, 6px 6px $color-text-yellow,
         7px 7px $color-text-yellow, 8px 8px $color-text-yellow, 9px 9px $color-text-yellow;
 }
@@ -292,15 +292,17 @@ h2 {
 // Vídeo
 #video {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
     overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
 }
 
 #video iframe {
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 100%;
 }
