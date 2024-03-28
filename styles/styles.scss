@@ -1,0 +1,316 @@
+/*********** VARIABLES ******************/
+// Colores generales
+$color-miclubbi: #4BB861;
+$color-background: #F9FFE0;
+$color-text-yellow: #F4C770;
+
+// Colores barra de menú
+$nav-color-background: $color-miclubbi;
+$nav-color-hover: #009929;
+$nav-color-text: $color-text-yellow;
+
+// Tamaños generales
+$width-container: 80%;
+
+// Fuentes de textos
+$fuente-general: Arial, Helvetica, sans-serif;
+
+/*********** MIXIN ******************/
+// Media Querie
+@mixin tablet {
+    @media screen and (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 520px) {
+        @content;
+    }
+}
+
+// Flex columna centrado
+@mixin flexColumnCenter {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+// Flex fila centrada
+@mixin flexRowCenter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin styleBig {
+    font-family: $fuente-general;
+    font-size: 35px;
+}
+
+@mixin styleMedium {
+    font-family: $fuente-general;
+    font-size: 20px;
+}
+
+@mixin styleSmall {
+    font-family: $fuente-general;
+    font-size: 15px;
+}
+
+/*********** RESET ESTILOS ******************/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*********** SECCIÓN CABECERA ******************/
+body {
+    margin: 5px;
+}
+
+// Cabecera
+header {
+    @include flexRowCenter();
+
+    justify-content: flex-start;
+    background-color: $color-miclubbi;
+    height: auto;
+
+    @include tablet() {
+        @include flexRowCenter();
+        justify-content: flex-start;
+    }
+
+    @include mobile() {
+        @include flexColumnCenter();
+        justify-content: flex-start;
+    }
+}
+
+// Logo menú navegación
+.logoNav svg {
+    height: auto;
+    max-width: 100%;
+    width: 200px;
+    margin: 10px;
+}
+
+// Animación logo menú navegación
+#ball1 {
+    animation: alternate infinite moveBall1 2s 1s both;
+}
+
+#ball2 {
+    animation: alternate infinite moveBall2 2s 1.5s both;
+}
+
+@keyframes moveBall1 {
+    0% {
+        transform: translate(-50%);
+    }
+
+    100% {
+        transform: translate(0%);
+    }
+}
+
+@keyframes moveBall2 {
+    0% {
+        transform: translate(-69%);
+    }
+
+    100% {
+        transform: translate(0%);
+    }
+}
+
+// Menú de navegación
+nav {
+
+    ul {
+        list-style: none;
+        overflow: hidden;
+
+        li {
+            float: left;
+            font-family: $fuente-general;
+            font-size: 20px;
+
+            &:hover {
+                background-color: $nav-color-hover;
+            }
+
+            a {
+                display: block;
+                padding: 20px;
+                color: $nav-color-text;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*********** SECCIÓN PRICIPAL ******************/
+// Main
+main {
+    @include flexColumnCenter();
+    background-color: $color-background;
+}
+
+// Secciones
+section {
+    padding: 1%;
+}
+
+// Títulos principales
+h1 {
+    @include styleBig();
+    text-align: center;
+    color: $color-miclubbi;
+    text-shadow: -1px 0 $color-text-yellow, 0 1px $color-text-yellow, 1px 0 $color-text-yellow, 0 -1px $color-text-yellow, 
+        -2px 2px 0 $color-text-yellow, 2px 2px 0 $color-text-yellow, 1px 1px $color-text-yellow, 2px 2px $color-text-yellow, 
+        3px 3px $color-text-yellow, 4px 4px $color-text-yellow, 5px 5px $color-text-yellow, 6px 6px $color-text-yellow,
+        7px 7px $color-text-yellow, 8px 8px $color-text-yellow, 9px 9px $color-text-yellow;
+}
+
+// Títulos secundarios
+h2 {
+    @include styleMedium();
+    color: $color-miclubbi;
+    text-align: center;
+}
+
+// DIV presentación
+#presentacion {
+    @include flexRowCenter();
+
+    @include tablet() {
+        @include flexRowCenter();
+    }
+
+    @include mobile() {
+        @include flexColumnCenter();
+    }
+
+    width: $width-container;
+    text-align: center;
+    margin: auto;
+}
+
+// Párrafo de la presentación
+#presentacion p {
+    @include styleMedium();
+    width: 100%;
+}
+
+// Animación logo futbolista
+#ball {
+    animation: alternate infinite moveBall 1s both;
+}
+
+#pierna {
+    animation: alternate infinite movePierna 1s both;
+}
+
+@keyframes moveBall {
+    0% {
+        transform: translateY(5%);
+    }
+
+    100% {
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes movePierna {
+    0% {
+        transform-origin: 50% 50%;
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform-origin: 50% 50%;
+        transform: rotateZ(10deg);
+    }
+}
+
+// Secciones
+#secciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+// Items del Grid
+.grid-item {
+    padding: 20px;
+    @include styleSmall();
+    text-align: center;
+}
+
+// DIV galería
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 330px);
+    grid-template-rows: repeat(2, 216px);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+
+    @include tablet() {
+        display: grid;
+        grid-template-columns: repeat(3, 330px);
+        grid-template-rows: repeat(2, 216px);
+        grid-column-gap: 10px;
+        grid-row-gap: 1em;
+    }
+
+    @include mobile() {
+        display: grid;
+        grid-template-columns: repeat(1, 330px);
+        grid-template-rows: repeat(2, 216px);
+        grid-column-gap: 10px;
+        grid-row-gap: 1em;
+    }
+}
+
+#galeria img {
+    border-radius: 8px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+// Vídeo
+#video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+#video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*********** SECCIÓN PIE DE PÁGINA ******************/
+footer {
+    @include flexRowCenter();
+    background-color: $color-miclubbi;
+    color: $color-text-yellow;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+}
